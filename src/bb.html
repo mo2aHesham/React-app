@@ -1,0 +1,49 @@
+import React from 'react'
+import ReactDOM from 'react-dom'
+function Film(props)
+{
+	return <h1> this film is : {props.name}</h1>
+}
+function Song(props)
+{
+	return <div>
+	<h1> this song is : {props.name} on {props.tv}</h1>
+	</div>
+}
+function Tv()
+{
+	return <div>
+	<Song name="amr diab" tv="mbc masr2"/>
+	<Song name="hamaki" tv="mbc3"/>
+	</div>
+}
+class Clock extends React.Component
+{
+	constructor(props)
+	{
+		super(props);
+		this.state = {date :new Date()}
+
+	}
+	componentDidMount()
+	{
+		 this.timer = setInterval( ()=>this.start(),1000);
+
+	}
+	componentWillUnmount()
+	{
+		clearInterval(this.timer);
+
+	}
+	start()
+	{
+		this.setState({date:new Date()});
+	}
+	render(){
+	  return <h1>{this.state.date.toLocaleTimeString()}</h1>
+ 
+	}
+}
+ReactDOM.render(<Clock/>,document.getElementById('root1'));
+ReactDOM.render(<Film name="abo ali"/>,document.getElementById('root3'));
+ReactDOM.render(Tv(),document.getElementById('root4'));

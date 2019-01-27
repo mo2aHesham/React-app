@@ -1,0 +1,62 @@
+import React from 'react'
+import ReactDOM from 'react-dom'
+let post = <h1>ahly</h1>
+let post2 = <h1>zamalek</h1>
+var name = "pyramids"
+var fun = function(){
+	return name.toUpperCase();
+}
+var fun1 = function(){
+	return <h1>{new Date().toLocaleTimeString()}</h1>
+}
+function Cartoon(props)
+{
+	return <h1>hello {props.name}.{props.Show}</h1>
+
+}
+function Show()
+{
+	return <div>
+	<Cartoon name="conan" Show="action"/>
+	<Cartoon name="tomjerry" Show="comedy"/>
+	</div>
+
+}
+class Film extends React.Component
+{
+	render(){
+		return <h1>This film is : {this.props.name}</h1>
+	}
+
+}
+setInterval(function(){
+	ReactDOM.render(
+	<h1>{new Date().toLocaleTimeString()}</h1>,
+	document.getElementById('root5')
+);
+},1000);
+
+ReactDOM.render(
+	post,
+	document.getElementById('root')
+);
+ReactDOM.render(
+	post2,
+	document.getElementById('root2')
+);
+ReactDOM.render(
+	fun(name),
+	document.getElementById('root3')
+);
+ReactDOM.render(
+	fun1(),
+	document.getElementById('root4')
+);
+ReactDOM.render(
+	<Show/>,
+	document.getElementById('root6')
+);
+ReactDOM.render(
+	<Film name="abo ali"/>,
+	document.getElementById('root7')
+);
