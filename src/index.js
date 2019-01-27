@@ -1,33 +1,17 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-
-function ChangeMessage(props)
+const Languages = ['PHP','JAVA','Python','Java Script']
+function LanguagesLists(props)
 {
-	if(props.value)
+	const List = props.Language
+	return <ul>
 	{
-		return <h1> this is first message</h1>
+		List.map((List,index)=>
+			<li key={index}>{List}</li>
+			)
 	}
-		return <h1> this is second message</h1>
+	</ul>
+
 }
 
-class Btn extends React.Component
-{
-	constructor(props)
-	{
-		super(props);
-		this.state = {value:true}
-	}
-	handleClick = ()=>{
-		this.setState({value:!this.state.value});
-         }
-
-	render()
-	{
-		return( <div>
-		<button onClick={this.handleClick}> change message</button>
-		<ChangeMessage value = {this.state.value}/>
-		</div>
-	)};
-}
-
-ReactDOM.render(<Btn/>,document.getElementById('root'));
+ReactDOM.render(<LanguagesLists Language={Languages}/>,document.getElementById('root'));
