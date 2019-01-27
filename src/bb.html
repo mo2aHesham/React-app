@@ -47,3 +47,22 @@ class Clock extends React.Component
 ReactDOM.render(<Clock/>,document.getElementById('root1'));
 ReactDOM.render(<Film name="abo ali"/>,document.getElementById('root3'));
 ReactDOM.render(Tv(),document.getElementById('root4'));
+class Inc extends React.Component
+{
+	constructor(props)
+	{
+		super(props);// to make props available any where
+		this.state = {counter:0}
+
+	}
+	increment = (e)=>
+	{
+		e.preventDefault();
+		this.setState({counter:this.state.counter+1});
+	}
+	render()
+	{
+		return <button onClick={this.increment}>value is : {this.state.counter}</button>
+	}
+}
+ReactDOM.render(<Inc/>,document.getElementById('root'));
