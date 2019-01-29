@@ -1,17 +1,30 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-const Languages = ['PHP','JAVA','Python','Java Script']
-function LanguagesLists(props)
+
+class FormTest extends React.Component
 {
-	const List = props.Language
-	return <ul>
+	constructor(props)
 	{
-		List.map((List,index)=>
-			<li key={index}>{List}</li>
-			)
+		super(props)
+		this.state = {value: ""}
+
 	}
-	</ul>
+	handleSubmit = (e)=>{
+		console.log(this.state.value)
+		e.preventDefault()
+	}
+	handleChange = (e)=>{
+		this.setState({value:e.target.value})
 
+	}
+
+	render()
+	{
+		return <form onSubmit = {this.handleSubmit}>
+		<textarea value = {this.state.value} onChange = {this.handleChange} />
+		<input  type = "submit" value = "Go Ahead" />
+
+		</form>
+	}
 }
-
-ReactDOM.render(<LanguagesLists Language={Languages}/>,document.getElementById('root'));
+ReactDOM.render(<FormTest/>,document.getElementById('root'));
