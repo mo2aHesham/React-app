@@ -6,7 +6,7 @@ class FormTest extends React.Component
 	constructor(props)
 	{
 		super(props)
-		this.state = {value: ""}
+		this.state = {value: "female"}
 
 	}
 	handleSubmit = (e)=>{
@@ -14,16 +14,18 @@ class FormTest extends React.Component
 		e.preventDefault()
 	}
 	handleChange = (e)=>{
-		this.setState({value:e.target.value})
+		this.setState({value:!this.state.value})
 
 	}
 
-	render()
+	render() 
 	{
 		return <form onSubmit = {this.handleSubmit}>
-		<textarea value = {this.state.value} onChange = {this.handleChange} />
-		<input  type = "submit" value = "Go Ahead" />
-
+		<select value = {this.state.value} onChange={this.handleChange}>
+		<option value ="male">male</option>
+		<option value ="female">female</option>
+		</select>
+		<input type = "submit" value = "Go Ahead"/>
 		</form>
 	}
 }
